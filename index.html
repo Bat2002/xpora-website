@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>XPORA - Coming soon</title>
-<meta name="description" content="XPORA connects businesses with influencers across Egypt.">
+<title>XPORA - Influencer visits for restaurants and spas in Egypt</title>
+<meta name="description" content="XPORA connects restaurants and spas in Egypt with influencers who visit in person and share the experience on Instagram and TikTok.">
 <meta name="theme-color" content="#827397">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,64 +31,141 @@
   .wordmark { font-family: "Poppins", sans-serif !important; font-weight: 800; letter-spacing: .14em;
               color: var(--accent); text-decoration: none; }
 
-  body { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-  main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-         text-align: center; padding: 48px 16px 24px; }
-  .wordmark { font-size: clamp(44px, 12vw, 76px); line-height: 1; }
-  .rings { position: relative; width: 132px; height: 132px; margin: 40px 0 36px; }
-  .rings span { position: absolute; inset: 0; border-radius: 50%; border: 3px solid transparent; }
-  .rings .outer { border-top-color: var(--accent); border-right-color: var(--accent);
-                  animation: spin 2.3s linear infinite; }
-  .rings .inner { inset: 22px; border-bottom-color: var(--accent); border-left-color: var(--accent);
-                  opacity: .65; animation: spin 3.5s linear infinite reverse; }
-  .rings .halo  { inset: 44px; background: var(--accent-soft); border: none;
-                  animation: breathe 2.8s ease-in-out infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes breathe { 50% { transform: scale(1.18); opacity: .6; } }
-  @media (prefers-reduced-motion: reduce) { .rings span { animation: none; } }
-  h1 { margin: 0; color: var(--ink); font-weight: 600; font-size: clamp(26px, 6.4vw, 38px); }
-  .lead { margin: 12px auto 0; max-width: 460px; font-size: 16px; line-height: 1.7; }
-  .ar { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); max-width: 460px; width: 100%; }
-  .ar h2 { margin: 0; color: var(--ink); font-weight: 600; font-size: clamp(24px, 6vw, 32px); }
-  .ar p { margin: 8px 0 0; font-size: 16px; line-height: 1.8; }
-  .contact { margin-top: 28px; font-size: 14px; }
-  .contact a { text-decoration: none; font-weight: 500; }
-  footer { padding: 20px 16px 28px; text-align: center; font-size: 13px; color: var(--sub); }
-  footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-bottom: 10px; }
+  header { position: sticky; top: 0; z-index: 3; background: var(--bg);
+           box-shadow: 0 1px 0 var(--line); }
+  header .bar { max-width: 980px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center;
+                justify-content: space-between; gap: 10px 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 32px; height: 32px; border-radius: 9px; }
+  .brand .wordmark { font-size: 20px; }
+  header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; font-size: 14px; }
+  header nav a { color: var(--text); text-decoration: none; }
+  header nav a:hover { color: var(--accent); }
+  header nav .lang { padding: 5px 12px; border-radius: 999px; background: var(--accent-soft);
+                     color: var(--accent); font-weight: 500; }
+  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 72px 0 0; scroll-margin-top: 80px; }
+  .hero { padding: 80px 0 0; display: flex; align-items: center; gap: 48px; }
+  .hero .copy { flex: 1; min-width: 0; }
+  .hero h1 { margin: 0; color: var(--ink); font-weight: 600; line-height: 1.18;
+             font-size: clamp(32px, 5.6vw, 46px); }
+  .hero p { font-size: 17px; line-height: 1.75; margin: 18px 0 0; max-width: 520px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .hero .logo { width: 200px; height: 200px; border-radius: 46px; flex: none;
+                box-shadow: 0 24px 60px rgba(130,115,151,.38); }
+  .button { display: inline-block; padding: 13px 26px; border-radius: 10px; background: var(--accent);
+            color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .button.ghost { background: var(--accent-soft); color: var(--accent); }
+  .soon { margin: 22px 0 0; font-size: 13px; color: var(--sub); }
+  h2 { margin: 0; color: var(--ink); font-weight: 600; font-size: clamp(24px, 4.4vw, 30px); }
+  .sub { margin: 10px 0 0; font-size: 16px; line-height: 1.7; max-width: 620px; }
+  .steps { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 28px;
+           grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .steps li { position: relative; }
+  .steps .n { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; align-items: center;
+              justify-content: center; background: var(--accent); color: #FFFFFF; font-weight: 600; font-size: 14px; }
+  .steps h3 { margin: 14px 0 6px; color: var(--ink); font-size: 16px; font-weight: 600; }
+  .steps p { margin: 0; font-size: 14.5px; line-height: 1.65; }
+  .pair { display: grid; gap: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .panel { border-radius: 20px; background: var(--accent-soft); padding: 30px 28px; }
+  .panel h2 { font-size: clamp(22px, 3.6vw, 26px); }
+  .panel ul { list-style: none; margin: 18px 0 0; padding: 0; }
+  .panel li { position: relative; padding-inline-start: 26px; margin: 10px 0; font-size: 15px; line-height: 1.6; }
+  .panel li::before { content: ""; position: absolute; inset-inline-start: 0; top: .5em; width: 12px; height: 7px;
+                      border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+                      transform: rotate(-45deg); }
+  .data { margin-top: 28px; display: grid; gap: 28px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .data h3 { margin: 0 0 8px; color: var(--ink); font-size: 15px; font-weight: 600; }
+  .data ul { margin: 0; padding-inline-start: 18px; font-size: 14.5px; line-height: 1.65; }
+  .data li { margin: 4px 0; }
+  .note { margin: 28px 0 0; font-size: 14.5px; line-height: 1.75; color: var(--text); }
+  .note strong { color: var(--ink); }
+  .contact { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .contact a { display: inline-block; padding: 12px 20px; border-radius: 10px; background: var(--accent-soft);
+               color: var(--accent); text-decoration: none; font-weight: 500; font-size: 15px; }
+  .ltr { direction: ltr; unicode-bidi: embed; }
+  footer { max-width: 980px; margin: 88px auto 0; padding: 26px 20px 40px; border-top: 1px solid var(--line);
+           font-size: 13px; color: var(--sub); }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 14px; }
   footer nav a { color: var(--text); text-decoration: none; }
   footer nav a:hover { color: var(--accent); }
-  footer .small { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px;
-                  margin: -2px 0 10px; font-size: 11px; }
-  footer .small a { color: var(--sub); text-decoration: none; }
-  footer .small a:hover { color: var(--accent); }
-  footer .operator { max-width: 560px; margin: 0 auto 8px; font-size: 11px; line-height: 1.6; }
+  footer .operator { margin: 0 0 8px; font-size: 11.5px; line-height: 1.6; max-width: 720px; }
+  @media (max-width: 760px) {
+    .hero { flex-direction: column-reverse; align-items: flex-start; gap: 28px; padding-top: 44px; }
+    .hero .logo { width: 96px; height: 96px; border-radius: 24px; }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pair, .data { grid-template-columns: 1fr; }
+    section { padding-top: 56px; }
+  }
+  @media (max-width: 420px) { .steps { grid-template-columns: 1fr; gap: 22px; } }
 </style>
 </head>
 <body>
-<main>
-  <div class="wordmark">XPORA</div>
-  <div class="rings" aria-hidden="true"><span class="outer"></span><span class="inner"></span><span class="halo"></span></div>
-  <h1>Website coming soon</h1>
-  <p class="lead">XPORA connects businesses with influencers across Egypt. Our website is on its way.</p>
-  <div class="ar" lang="ar" dir="rtl">
-    <h2>الموقع قريبًا</h2>
-    <p>تربط XPORA الأنشطة التجارية بالمؤثرين في جميع أنحاء مصر. موقعنا في الطريق.</p>
+<header>
+  <div class="bar">
+    <a class="brand" href=""><img src="apple-touch-icon.png" alt="" width="32" height="32"><span class="wordmark">XPORA</span></a>
+    <nav>
+      <a href="terms/">Terms</a>
+      <a href="privacy/">Privacy Policy</a>
+      <a class="lang" href="ar/" lang="ar">العربية</a>
+    </nav>
   </div>
-  <p class="contact"><a href="mailto:support@xporanetwork.com">support@xporanetwork.com</a></p>
+</header>
+<main>
+  <div class="hero">
+    <div class="copy">
+      <h1>Real visits. Real content. Real results.</h1>
+      <p>XPORA connects restaurants and spas in Egypt with influencers who visit in person and share the experience on Instagram and TikTok.</p>
+      <div class="actions">
+        <a class="button" href="#businesses">For businesses</a>
+        <a class="button ghost" href="#influencers">For influencers</a>
+      </div>
+      <p class="soon">Launching on the App Store and Google Play.</p>
+    </div>
+    <img class="logo" src="apple-touch-icon.png" alt="XPORA">
+  </div>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <ol class="steps"><li><span class="n">1</span><h3>A business orders</h3><p>It chooses the audience, the content and its branches.</p></li><li><span class="n">2</span><h3>XPORA publishes</h3><p>Our team reviews every request before influencers see it.</p></li><li><span class="n">3</span><h3>Influencers visit</h3><p>They book a branch and a time, visit, and post.</p></li><li><span class="n">4</span><h3>Results come in</h3><p>The business follows the content's numbers in the app.</p></li></ol>
+  </section>
+
+  <section class="pair">
+    <div class="panel" id="businesses">
+      <h2>For businesses</h2>
+      <p class="sub">Advertising that walks through your door.</p>
+      <ul><li>Ready packages, or a request built around your audience</li><li>Stories, posts and reels on Instagram and TikTok</li><li>Every booking's branch, day and time, sent to you</li><li>Views, likes, comments and shares in your app</li></ul>
+    </div>
+    <div class="panel" id="influencers">
+      <h2>For influencers</h2>
+      <p class="sub">Paid visits to places worth sharing.</p>
+      <ul><li>Apply with your Instagram and TikTok</li><li>Book the places and times that suit you</li><li>Pick what you posted straight from your accounts</li><li>Get paid to your wallet and withdraw any time</li></ul>
+    </div>
+  </section>
+
+  <section id="data">
+    <h2>Instagram & TikTok</h2>
+    <p class="sub">Influencers connect their accounts through Instagram's and TikTok's own sign-in. This is what XPORA receives, and why.</p>
+    <div class="data">
+      <div><h3>From Instagram</h3><ul><li>Account ID, username and account type</li><li>Follower count</li><li>Recent posts, reels and stories, with their numbers</li></ul></div>
+      <div><h3>From TikTok</h3><ul><li>User ID, username and display name</li><li>Follower count</li><li>Public videos, with their numbers</li></ul></div>
+      <div><h3>Used to</h3><ul><li>Confirm the account is yours</li><li>Understand your audience size</li><li>Show the business you visited how your content performed</li></ul></div>
+    </div>
+    <p class="note"><strong>XPORA never posts for you and never sees your password.</strong> You can remove its access at any time in Instagram or TikTok. <a href="privacy/">Privacy Policy</a></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact us</h2>
+    <div class="contact"><a href="mailto:support@xporanetwork.com">support@xporanetwork.com</a><a class="ltr" href="tel:01150010050">01150010050</a><a class="ltr" href="tel:01061987222">01061987222</a></div>
+  </section>
 </main>
 <footer>
   <nav>
     <a href="terms/">Terms of Service</a>
     <a href="privacy/">Privacy Policy</a>
-    <a href="ar/terms/" lang="ar">شروط الخدمة</a>
-    <a href="ar/privacy/" lang="ar">سياسة الخصوصية</a>
-  </nav>
-  <div class="small">
     <a href="delete-account/">Account deletion</a>
-    <a href="ar/delete-account/" lang="ar">حذف الحساب</a>
-  </div>
+  </nav>
   <p class="operator">XPORA is operated by TAWVO Digital Services, a limited liability company, Commercial Registration No. 6548R of 2026, Tax ID 774231777 &middot; Building No. 1, Chillout Lotus Maxim, Third Floor, Fifth Settlement, New Cairo, Egypt</p>
-  <p class="operator" lang="ar" dir="rtl">تشغّل XPORA شركة <span dir="ltr">TAWVO Digital Services</span>، شركة ذات مسئولية محدودة، سجل تجاري رقم 6548ر لسنة 2026، رقم تسجيل ضريبي 774231777</p>
   &copy; 2026 XPORA &middot; TAWVO Digital Services
 </footer>
 </body>

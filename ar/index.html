@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XPORA - زيارات المؤثرين للمطاعم والسبا في مصر</title>
+<meta name="description" content="تربط XPORA المطاعم ومراكز السبا في مصر بمؤثرين يزورونها بأنفسهم ويشاركون تجربتهم على إنستغرام وتيك توك.">
+<meta name="theme-color" content="#827397">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF; --ink: #363537; --text: #5F5B5B; --sub: #ADA8A8;
+    --accent: #827397; --accent-soft: rgba(130,115,151,.10); --line: #ECE9F0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #363537; --ink: #FFFFFF; --text: #E9E6EE; --sub: #B9B5C0;
+      --accent: #B7A4D0; --accent-soft: rgba(183,164,208,.12); --line: #4A484C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font-family: "Poppins", "Segoe UI", Arial, sans-serif; }
+  [lang="ar"], [lang="ar"] * { font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; }
+  a { color: var(--accent); }
+  .wordmark { font-family: "Poppins", sans-serif !important; font-weight: 800; letter-spacing: .14em;
+              color: var(--accent); text-decoration: none; }
+
+  header { position: sticky; top: 0; z-index: 3; background: var(--bg);
+           box-shadow: 0 1px 0 var(--line); }
+  header .bar { max-width: 980px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center;
+                justify-content: space-between; gap: 10px 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 32px; height: 32px; border-radius: 9px; }
+  .brand .wordmark { font-size: 20px; }
+  header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; font-size: 14px; }
+  header nav a { color: var(--text); text-decoration: none; }
+  header nav a:hover { color: var(--accent); }
+  header nav .lang { padding: 5px 12px; border-radius: 999px; background: var(--accent-soft);
+                     color: var(--accent); font-weight: 500; }
+  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 72px 0 0; scroll-margin-top: 80px; }
+  .hero { padding: 80px 0 0; display: flex; align-items: center; gap: 48px; }
+  .hero .copy { flex: 1; min-width: 0; }
+  .hero h1 { margin: 0; color: var(--ink); font-weight: 600; line-height: 1.18;
+             font-size: clamp(32px, 5.6vw, 46px); }
+  .hero p { font-size: 17px; line-height: 1.75; margin: 18px 0 0; max-width: 520px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .hero .logo { width: 200px; height: 200px; border-radius: 46px; flex: none;
+                box-shadow: 0 24px 60px rgba(130,115,151,.38); }
+  .button { display: inline-block; padding: 13px 26px; border-radius: 10px; background: var(--accent);
+            color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .button.ghost { background: var(--accent-soft); color: var(--accent); }
+  .soon { margin: 22px 0 0; font-size: 13px; color: var(--sub); }
+  h2 { margin: 0; color: var(--ink); font-weight: 600; font-size: clamp(24px, 4.4vw, 30px); }
+  .sub { margin: 10px 0 0; font-size: 16px; line-height: 1.7; max-width: 620px; }
+  .steps { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 28px;
+           grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .steps li { position: relative; }
+  .steps .n { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; align-items: center;
+              justify-content: center; background: var(--accent); color: #FFFFFF; font-weight: 600; font-size: 14px; }
+  .steps h3 { margin: 14px 0 6px; color: var(--ink); font-size: 16px; font-weight: 600; }
+  .steps p { margin: 0; font-size: 14.5px; line-height: 1.65; }
+  .pair { display: grid; gap: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .panel { border-radius: 20px; background: var(--accent-soft); padding: 30px 28px; }
+  .panel h2 { font-size: clamp(22px, 3.6vw, 26px); }
+  .panel ul { list-style: none; margin: 18px 0 0; padding: 0; }
+  .panel li { position: relative; padding-inline-start: 26px; margin: 10px 0; font-size: 15px; line-height: 1.6; }
+  .panel li::before { content: ""; position: absolute; inset-inline-start: 0; top: .5em; width: 12px; height: 7px;
+                      border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+                      transform: rotate(-45deg); }
+  .data { margin-top: 28px; display: grid; gap: 28px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .data h3 { margin: 0 0 8px; color: var(--ink); font-size: 15px; font-weight: 600; }
+  .data ul { margin: 0; padding-inline-start: 18px; font-size: 14.5px; line-height: 1.65; }
+  .data li { margin: 4px 0; }
+  .note { margin: 28px 0 0; font-size: 14.5px; line-height: 1.75; color: var(--text); }
+  .note strong { color: var(--ink); }
+  .contact { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .contact a { display: inline-block; padding: 12px 20px; border-radius: 10px; background: var(--accent-soft);
+               color: var(--accent); text-decoration: none; font-weight: 500; font-size: 15px; }
+  .ltr { direction: ltr; unicode-bidi: embed; }
+  footer { max-width: 980px; margin: 88px auto 0; padding: 26px 20px 40px; border-top: 1px solid var(--line);
+           font-size: 13px; color: var(--sub); }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 14px; }
+  footer nav a { color: var(--text); text-decoration: none; }
+  footer nav a:hover { color: var(--accent); }
+  footer .operator { margin: 0 0 8px; font-size: 11.5px; line-height: 1.6; max-width: 720px; }
+  @media (max-width: 760px) {
+    .hero { flex-direction: column-reverse; align-items: flex-start; gap: 28px; padding-top: 44px; }
+    .hero .logo { width: 96px; height: 96px; border-radius: 24px; }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pair, .data { grid-template-columns: 1fr; }
+    section { padding-top: 56px; }
+  }
+  @media (max-width: 420px) { .steps { grid-template-columns: 1fr; gap: 22px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="../ar/"><img src="../apple-touch-icon.png" alt="" width="32" height="32"><span class="wordmark">XPORA</span></a>
+    <nav>
+      <a href="../ar/terms/">الشروط</a>
+      <a href="../ar/privacy/">سياسة الخصوصية</a>
+      <a class="lang" href="../" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="hero">
+    <div class="copy">
+      <h1>زيارات حقيقية. محتوى حقيقي. نتائج حقيقية.</h1>
+      <p>تربط XPORA المطاعم ومراكز السبا في مصر بمؤثرين يزورونها بأنفسهم ويشاركون تجربتهم على إنستغرام وتيك توك.</p>
+      <div class="actions">
+        <a class="button" href="#businesses">للأنشطة التجارية</a>
+        <a class="button ghost" href="#influencers">للمؤثرين</a>
+      </div>
+      <p class="soon">قريبًا على App Store وGoogle Play.</p>
+    </div>
+    <img class="logo" src="../apple-touch-icon.png" alt="XPORA">
+  </div>
+
+  <section id="how">
+    <h2>كيف تعمل XPORA</h2>
+    <ol class="steps"><li><span class="n">1</span><h3>يطلب النشاط التجاري</h3><p>يختار الجمهور والمحتوى وفروعه.</p></li><li><span class="n">2</span><h3>تنشر XPORA الطلب</h3><p>يراجع فريقنا كل طلب قبل أن يراه المؤثرون.</p></li><li><span class="n">3</span><h3>يزور المؤثرون</h3><p>يحجزون فرعًا وموعدًا، ثم يزورون وينشرون.</p></li><li><span class="n">4</span><h3>تصل النتائج</h3><p>يتابع النشاط التجاري أرقام المحتوى في التطبيق.</p></li></ol>
+  </section>
+
+  <section class="pair">
+    <div class="panel" id="businesses">
+      <h2>للأنشطة التجارية</h2>
+      <p class="sub">إعلان يدخل من بابك.</p>
+      <ul><li>باقات جاهزة، أو طلب مصمم حول جمهورك</li><li>ستوري ومنشورات وريلز على إنستغرام وتيك توك</li><li>فرع كل حجز ويومه وموعده يصلك مباشرة</li><li>المشاهدات والإعجابات والتعليقات والمشاركات في تطبيقك</li></ul>
+    </div>
+    <div class="panel" id="influencers">
+      <h2>للمؤثرين</h2>
+      <p class="sub">زيارات مدفوعة لأماكن تستحق المشاركة.</p>
+      <ul><li>قدّم بحسابَي إنستغرام وتيك توك</li><li>احجز الأماكن والمواعيد التي تناسبك</li><li>اختر ما نشرته مباشرة من حساباتك</li><li>احصل على أجرك في محفظتك واسحبه في أي وقت</li></ul>
+    </div>
+  </section>
+
+  <section id="data">
+    <h2>إنستغرام وتيك توك</h2>
+    <p class="sub">يربط المؤثرون حساباتهم من خلال تسجيل الدخول الخاص بإنستغرام وتيك توك. هذا ما تحصل عليه XPORA ولماذا.</p>
+    <div class="data">
+      <div><h3>من إنستغرام</h3><ul><li>معرّف الحساب واسم المستخدم ونوع الحساب</li><li>عدد المتابعين</li><li>المنشورات والريلز والستوري الأخيرة وأرقامها</li></ul></div>
+      <div><h3>من تيك توك</h3><ul><li>معرّف المستخدم واسم المستخدم والاسم الظاهر</li><li>عدد المتابعين</li><li>الفيديوهات العامة وأرقامها</li></ul></div>
+      <div><h3>لاستخدامها في</h3><ul><li>التأكد من أن الحساب ملكك</li><li>معرفة حجم جمهورك</li><li>عرض أداء محتواك على النشاط التجاري الذي زرته</li></ul></div>
+    </div>
+    <p class="note"><strong>لا تنشر XPORA أي شيء نيابةً عنك ولا ترى كلمة مرورك أبدًا.</strong> ويمكنك إلغاء وصولها في أي وقت من إنستغرام أو تيك توك. <a href="../ar/privacy/">سياسة الخصوصية</a></p>
+  </section>
+
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <div class="contact"><a href="mailto:support@xporanetwork.com">support@xporanetwork.com</a><a class="ltr" href="tel:01150010050">01150010050</a><a class="ltr" href="tel:01061987222">01061987222</a></div>
+  </section>
+</main>
+<footer>
+  <nav>
+    <a href="../ar/terms/">شروط الخدمة</a>
+    <a href="../ar/privacy/">سياسة الخصوصية</a>
+    <a href="../ar/delete-account/">حذف الحساب</a>
+  </nav>
+  <p class="operator">تشغّل XPORA شركة <span dir="ltr">TAWVO Digital Services</span>، شركة ذات مسئولية محدودة، سجل تجاري رقم 6548ر لسنة 2026، رقم تسجيل ضريبي 774231777</p>
+  &copy; 2026 XPORA &middot; TAWVO Digital Services
+</footer>
+</body>
+</html>

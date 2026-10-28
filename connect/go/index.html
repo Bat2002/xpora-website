@@ -59,9 +59,8 @@
   <div class="working">
     <div class="rings" aria-hidden="true"><span class="outer"></span><span class="inner"></span></div>
     <h1 id="title">Going to TikTok</h1>
-    <p>Sign in to your account there and allow XPORA to connect it. You will come back to XPORA by yourself.</p>
-    <p class="ar" lang="ar" dir="rtl">سجّل الدخول إلى حسابك هناك واسمح لـ XPORA بربطه. ستعود إلى XPORA تلقائيًا.</p>
-    <a class="button" id="open" href="#">Continue · متابعة</a>
+    <p>Sign in to your account there and allow XPORA to connect it. You will be taken back to the XPORA app automatically.</p>
+    <p class="ar" lang="ar" dir="rtl">سجّل الدخول إلى حسابك هناك واسمح لـ XPORA بربطه. سيتم إرجاعك إلى تطبيق XPORA تلقائيًا.</p>
   </div>
   <div class="problem">
     <h1 style="margin-top:32px">Something went wrong</h1>
@@ -79,7 +78,6 @@
     return;
   }
   if (instagram) document.getElementById("title").textContent = "Going to Instagram";
-  document.getElementById("open").setAttribute("href", to);
   setTimeout(function () { window.location.replace(to); }, 5000);
 })();
 </script>

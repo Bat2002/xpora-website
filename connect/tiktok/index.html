@@ -59,9 +59,8 @@
   <div class="working">
     <div class="rings" aria-hidden="true"><span class="outer"></span><span class="inner"></span></div>
     <h1>Returning to XPORA</h1>
-    <p>TikTok is connected. If the app does not open by itself, press the button.</p>
-    <p class="ar" lang="ar" dir="rtl">جارٍ العودة إلى XPORA. إذا لم يُفتح التطبيق تلقائيًا، اضغط على الزر.</p>
-    <a class="button" id="open" href="#">Open XPORA · افتح XPORA</a>
+    <p id="done">TikTok is connected. You will be taken back to the XPORA app automatically.</p>
+    <p id="done-ar" class="ar" lang="ar" dir="rtl">تم ربط تيك توك. سيتم إرجاعك إلى تطبيق XPORA تلقائيًا.</p>
   </div>
   <div class="problem">
     <h1 style="margin-top:32px">Something went wrong</h1>
@@ -92,10 +91,15 @@
     if (value !== null) out.set(key, value);
   });
   var url = target + (target.indexOf("?") < 0 ? "?" : "&") + out.toString();
-  document.getElementById("open").setAttribute("href", url);
+  if (query.get("error") !== null || query.get("code") === null) {
+    // they pressed Cancel (or the platform refused): nothing was connected
+    document.getElementById("done").textContent =
+      "Nothing was connected. You will be taken back to the XPORA app automatically.";
+    document.getElementById("done-ar").textContent =
+      "لم يتم ربط أي حساب. سيتم إرجاعك إلى تطبيق XPORA تلقائيًا.";
+  }
   // Held on screen for a few seconds so the address bar visibly shows xporanetwork.com -
-  // TikTok's review requires the website's domain to appear in the demo video (2026-10-28).
-  // The button works straight away for anybody who does not want to wait.
+  // TikTok's and Meta's reviews want the website's domain in the demo video (CLAUDE.md 83).
   setTimeout(function () { window.location.replace(url); }, 5000);
 })();
 </script>

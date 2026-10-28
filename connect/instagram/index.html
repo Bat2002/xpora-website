@@ -93,7 +93,10 @@
   });
   var url = target + (target.indexOf("?") < 0 ? "?" : "&") + out.toString();
   document.getElementById("open").setAttribute("href", url);
-  window.location.replace(url);
+  // Held on screen for a few seconds so the address bar visibly shows xporanetwork.com -
+  // TikTok's review requires the website's domain to appear in the demo video (2026-10-28).
+  // The button works straight away for anybody who does not want to wait.
+  setTimeout(function () { window.location.replace(url); }, 5000);
 })();
 </script>
 </body>
